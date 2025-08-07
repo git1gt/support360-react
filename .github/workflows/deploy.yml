@@ -31,5 +31,5 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SERVER_KEY }}
         source: "dist/*"
-        target: "/var/www/support360"
+        target: "/www/support360.1gt.ru"
         strip_components: 1
