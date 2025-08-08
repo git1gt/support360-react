@@ -3,22 +3,3 @@ Disallow: /
 
 # Sitemap
 Sitemap: https://support360.ru/sitemap.xml
-
-# Crawl-delay for better server performance
-Crawl-delay: 1
-
-# Block access to admin areas (if any)
-Disallow: /admin/
-Disallow: /api/
-Disallow: /*.json$
-
-# Allow important pages
-Allow: /
-Allow: /features
-Allow: /use-cases
-Allow: /workflow
-Allow: /statistics
-Allow: /service-history
-Allow: /ai-section
-Allow: /faq
-Allow: /contact
