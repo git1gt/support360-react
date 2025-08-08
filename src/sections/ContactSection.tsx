@@ -13,27 +13,72 @@ const ContactSection: React.FC = () => {
   const [showError, setShowError] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
+    // Проверка согласия
     if (!formData.acceptTerms) {
       setShowError(true);
       return;
     }
-    
-    // Validate phone number format
+  
+    // Валидация телефона
     const phoneRegex = /^\+7-\d{3}-\d{3}-\d{2}-\d{2}$/;
     if (!phoneRegex.test(formData.phone)) {
       alert('Пожалуйста, введите номер телефона в формате +7-XXX-XXX-XX-XX');
       return;
     }
-
+  
     setShowError(false);
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setFormData({ name: '', phone: '', acceptTerms: false });
-    setTimeout(() => setIsSubmitted(false), 5000);
+  
+    // Получаем roistat_visit из куки
+    const roistatVisit = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('roistat_visit='))
+      ?.split('=')[1];
+  
+    // Подготовка данных для отправки
+    const payload = {
+      api_key: process.env.REACT_APP_ROISTAT_API_KEY, // Используем переменную окружения
+      lead: {
+        visit_id: roistatVisit || null,
+        name: formData.name,
+        phone: formData.phone,
+        comment: "Заявка с формы: Контактная форма",
+        custom_fields: {
+          UF_CRM_1685464673696: "Контактная форма",
+          UF_CRM_1697621364: "Support360"
+        }
+      },
+      pipeline: {
+        status: "C11:NEW"
+      }
+    };
+  
+    try {
+      const response = await fetch('https://cloud.roistat.com/api/proxy/1.0/leads/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+  
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', phone: '', acceptTerms: false });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        const errorData = await response.json();
+        console.error('Ошибка отправки в Roistat:', errorData);
+        alert('Не удалось отправить заявку. Попробуйте позже.');
+      }
+    } catch (error) {
+      console.error('Сетевая ошибка:', error);
+      alert('Ошибка соединения. Попробуйте позже.');
+    }
   };
-
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     
