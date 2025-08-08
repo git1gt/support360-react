@@ -3,5 +3,3 @@ Disallow: /
 
 # Sitemap
 Sitemap: https://support360.ru/sitemap.xml
-
-#тест
