@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
+import { Phone } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -92,6 +93,10 @@ const Header: React.FC = () => {
             Вопросы
           </a>
         </nav>
+
+        <div className="hidden md:flex items-center mr-5 ml-5">
+          <a href="tel:+73833838004" data-roistat-phone className={`text-lg font-medium transition-colors ${isScrolled ? 'text-primary hover:underline' : 'text-white hover:text-primary'}`}>+7 (383) 383-80-04</a>
+        </div>
         
         <div className="hidden md:flex items-center space-x-3 mr-10">
           <Button 
@@ -206,6 +211,13 @@ const Header: React.FC = () => {
             </a>
             
             <div className="pt-4 space-y-3">
+              <div className="flex items-start justify-center">
+                  <Phone className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <a href="tel:+73833838004" data-roistat-phone className="text-lg hover:underline w-full"> +7 (383) 383-80-04 </a>
+                  </div>
+                </div>
+
               <Button onClick={openLogin} className="!bg-transparent !text-primary border-2 border-primary hover:!bg-primary/10 w-full">
                 Вход/Регистрация
               </Button>

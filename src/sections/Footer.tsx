@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <Phone className="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
-                  <a href="tel:+73833838004" className="text-white hover:text-primary transition-colors">
+                  <a href="tel:+73833838004" data-roistat-phone className="text-white hover:text-primary transition-colors">
                     +7 (383) 383-80-04
                   </a>
                   <p className="text-gray-400 text-sm">Пн-Вс: 9:00-18:00 (НСК)</p>

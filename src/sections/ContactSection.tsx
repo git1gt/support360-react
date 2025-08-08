@@ -78,7 +78,7 @@ const ContactSection: React.FC = () => {
       alert('Ошибка соединения. Попробуйте позже.');
     }
   };
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     
@@ -242,7 +242,7 @@ const ContactSection: React.FC = () => {
 
                 <div>
                   <p className="font-semibold text-gray-700">Телефон:</p>
-                  <a href="tel:+73833838004" className="text-primary hover:underline">+7 (383) 383-80-04</a>
+                  <a href="tel:+73833838004" data-roistat-phone className="text-primary hover:underline">+7 (383) 383-80-04</a>
                 </div>
 
                 <div>
