@@ -77,7 +77,7 @@ const Header: React.FC = () => {
           <a href="#features" className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
             Возможности
           </a>
-          <a href="#workflow" className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
+          <a href="#workflow" className={`text-sm whitespace-nowrap font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
             Как работает
           </a>
           <a href="#statistics" className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
@@ -86,7 +86,7 @@ const Header: React.FC = () => {
           <a href="#service-history" className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
             История
           </a>
-          <a href="#ai-section" className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
+          <a href="#ai-section" className={`text-sm whitespace-nowrap font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
             Умный помощник
           </a>
           <a href="#faq" className={`text-sm font-medium hover:text-primary transition-colors ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
@@ -94,7 +94,7 @@ const Header: React.FC = () => {
           </a>
         </nav>
 
-        <div className="hidden md:flex items-center mr-5 ml-5">
+        <div className="hidden whitespace-nowrap md:flex items-center mr-5 ml-5">
           <a href="tel:+73833838004" data-roistat-phone className={`text-lg font-medium transition-colors ${isScrolled ? 'text-primary hover:underline' : 'text-white hover:text-primary'}`}>+7 (383) 383-80-04</a>
         </div>
         
