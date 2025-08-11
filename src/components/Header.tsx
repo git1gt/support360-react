@@ -214,7 +214,7 @@ const Header: React.FC = () => {
               <div className="flex items-start justify-center">
                   <Phone className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
                   <div>
-                    <a href="tel:+738338382864" className="text-lg hover:underline w-full podmena_support360"> +7 (383) 383-82-86 </a>
+                    <a href="tel:+73833838286" className="text-lg hover:underline w-full podmena_support360"> +7 (383) 383-82-86 </a>
                   </div>
                 </div>
 
