@@ -242,7 +242,7 @@ const ContactSection: React.FC = () => {
 
                 <div>
                   <p className="font-semibold text-gray-700">Телефон:</p>
-                  <a href="tel:+73833838004" data-roistat-phone className="text-primary hover:underline">+7 (383) 383-80-04</a>
+                  <a href="tel:73833838286" className="text-primary hover:underline podmena_support360">+7 (383) 383-82-86</a>
                 </div>
 
                 <div>
