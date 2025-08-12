@@ -56,7 +56,7 @@ const ContactSection: React.FC = () => {
     };
   
     try {
-      const response = await fetch('https://cloud.roistat.com/api/proxy/1.0/leads/add', {
+      const response = await fetch('/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
