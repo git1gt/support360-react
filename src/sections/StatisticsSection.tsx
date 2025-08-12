@@ -87,7 +87,7 @@ const StatisticsSection: React.FC = () => {
   });
   
   return (
-    <section 
+    <section id="statistics"
       ref={elementRef}
       className="py-20 bg-primary text-white"
     >

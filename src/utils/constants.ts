@@ -7,7 +7,7 @@
 export const CONTACT_INFO = {
   company: 'ООО "ИТ Лаборатория"',
   email: 'info@support360.ru',
-  phone: '+7 (383) 383-80-04',
+  phone: '+7 (383) 383-82-86',
   address: '630007, г. Новосибирск, ул. Большевистская, д.97',
   telegramBot: 'https://t.me/dev_support360_bot',
   website: 'https://support360.ru'

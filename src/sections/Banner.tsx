@@ -84,7 +84,7 @@ const Banner: React.FC = () => {
         ></div>
       </div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10 flex flex-col items-center">
+      <div className={`container mx-auto px-4 py-20 relative z-10 flex flex-col items-center ${!isMobile ? 'ml-40' : ''}`}>
         <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl">
           <div id="home" className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 tracking-tight">
