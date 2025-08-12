@@ -56,7 +56,7 @@ const ContactSection: React.FC = () => {
     };
   
     try {
-      const response = await fetch('/api/leads', {
+      const response = await fetch('https://cloud.roistat.com/api/site/1.0/leads/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,6 @@ const ContactSection: React.FC = () => {
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: '', phone: '', acceptTerms: false });
-        setTimeout(() => setIsSubmitted(false), 5000);
       } else {
         const errorData = await response.json();
         console.error('Ошибка отправки в Roistat:', errorData);
