@@ -95,7 +95,7 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="hidden whitespace-nowrap md:flex items-center mr-5 ml-5">
-          <a href="tel:+73833838286" className={`podmena_support360 text-lg font-medium transition-colors ${isScrolled ? 'text-primary hover:underline' : 'text-white hover:text-primary'}`}>+7 (383) 383-82-86</a>
+          <a href="tel:+73833838286" className={`podmena_support360 text-lg font-medium transition-colors ${isScrolled ? 'text-primary hover:underline' : 'text-white hover:text-primary'}`}>8 (XXX) XXX-XX-XX</a>
         </div>
         
         <div className="hidden md:flex items-center space-x-3 mr-10">
