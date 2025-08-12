@@ -39,42 +39,46 @@ const ContactSection: React.FC = () => {
   
     // Подготовка данных для отправки
     const payload = {
-      api_key: process.env.REACT_APP_ROISTAT_API_KEY, // Используем переменную окружения
-      lead: {
-        visit_id: roistatVisit || null,
-        name: formData.name,
-        phone: formData.phone,
-        comment: "Заявка с формы: Контактная форма",
-        custom_fields: {
-          UF_CRM_1685464673696: "Контактная форма",
-          UF_CRM_1697621364: "Support360"
-        }
-      },
-      pipeline: {
+      name: formData.name,
+      phone: formData.phone,
+      roistat: {
+        visit: roistatVisit || null,
+        formName: "Контактная форма с сайта", // Можно менять при необходимости
+        source: "Support360",
         status: "C11:NEW"
       }
     };
   
     try {
-      const response = await fetch('https://cloud.roistat.com/api/site/1.0/leads/add', {
+      // Отправка данных на ваш PHP-скрипт
+      const response = await fetch('https://support360.1gt.ru/handle_lead.php', {
+        // если он в той же папке, что и index.html:
+        // const response = await fetch('/handle_lead.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
       });
-  
-      if (response.ok) {
+
+      // Обработка ответа
+      const responseData = await response.json();
+
+      if (response.ok && responseData.success) {
+        // Успех: сервер обработал данные и передал их в Roistat
         setIsSubmitted(true);
         setFormData({ name: '', phone: '', acceptTerms: false });
+        // console.log('Ответ от сервера:', responseData.data);
+        setTimeout(() => setIsSubmitted(false), 5000);
       } else {
-        const errorData = await response.json();
-        console.error('Ошибка отправки в Roistat:', errorData);
-        alert('Не удалось отправить заявку. Попробуйте позже.');
+        // Ошибка: сервер вернул ошибку или Roistat вернул ошибку
+        console.error('Ошибка отправки формы:', responseData);
+        alert(`Не удалось отправить заявку: ${responseData.error || 'Неизвестная ошибка'}. Попробуйте позже.`);
       }
     } catch (error) {
-      console.error('Сетевая ошибка:', error);
-      alert('Ошибка соединения. Попробуйте позже.');
+      // Сетевая ошибка (сервер недоступен, ошибка CORS и т.д.)
+      console.error('Сетевая ошибка при отправке формы:', error);
+      alert('Ошибка соединения с сервером. Проверьте подключение к интернету и попробуйте позже.');
     }
   };
 
