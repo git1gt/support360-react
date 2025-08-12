@@ -49,14 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-// --- 5. Проверяем, что запрос пришёл методом POST ---
+// 5. Проверяем, что запрос пришёл методом POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405); // Method Not Allowed
     echo json_encode(['success' => false, 'error' => 'Method Not Allowed']);
     exit();
 }
 
-// --- 6. Получаем JSON-данные из тела запроса ---
+// 6. Получаем JSON-данные из тела запроса
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE); // Преобразуем в ассоциативный массив
 
@@ -66,7 +66,7 @@ if (json_last_error() !== JSON_ERROR_NONE) {
     exit();
 }
 
-// --- 7. Извлекаем данные ---
+// 7. Извлекаем данные
 $name = isset($input['name']) ? trim($input['name']) : null;
 $phone = isset($input['phone']) ? trim($input['phone']) : null;
 $roistat_data = isset($input['roistat']) ? $input['roistat'] : [];
@@ -77,8 +77,7 @@ if (!$name || !$phone) {
     exit();
 }
 
-// --- 8. Получаем API-ключ Roistat из переменных окружения ---
-// Теперь мы пытаемся получить его из загруженного .env или установленных переменных окружения сервера
+//  8. Получаем API-ключ Roistat из переменных окружения
 $api_key = getenv('ROISTAT_API_KEY');
 
 if (!$api_key) {
@@ -88,7 +87,7 @@ if (!$api_key) {
     exit();
 }
 
-// --- 9. Формируем данные для Roistat API ---
+// 9. Формируем данные для Roistat API
 $payload = [
     'api_key' => $api_key,
     'lead' => [
@@ -106,7 +105,7 @@ $payload = [
     ]
 ];
 
-// --- 10. Отправляем данные в Roistat API ---
+// 10. Отправляем данные в Roistat API
 $roistat_url = 'https://cloud.roistat.com/api/proxy/1.0/leads/add';
 
 $ch = curl_init($roistat_url);
@@ -124,7 +123,7 @@ $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curl_error = curl_error($ch);
 curl_close($ch);
 
-// --- 11. Проверяем ответ и возвращаем его клиенту ---
+// 11. Проверяем ответ и возвращаем его клиенту
 if ($response === false) {
     error_log("Ошибка cURL при подключении к Roistat API: " . $curl_error);
     http_response_code(500);
@@ -142,8 +141,7 @@ if (json_last_error() !== JSON_ERROR_NONE) {
     exit();
 }
 
-// --- 12. Возвращаем ответ от Roistat клиенту ---
+// 12. Возвращаем ответ от Roistat клиенту
 http_response_code($http_code);
 echo json_encode(['success' => $http_code >= 200 && $http_code < 300, 'data' => $roistat_response_data]);
-
 ?>
