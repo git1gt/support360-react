@@ -117,7 +117,7 @@ const Header: React.FC = () => {
             </nav>
             
             <div className="whitespace-nowrap hidden md:flex items-center mx-2 flex-shrink-0">
-              <a className={`podmena_support360 text-lg font-medium transition-colors ${isScrolled ? 'text-primary hover:underline' : 'text-white hover:text-primary'} whitespace-nowrap`}>
+              <a href="tel:+73833838286" className="podmena_support360">
               </a>
             </div>
             
