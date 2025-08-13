@@ -117,7 +117,7 @@ const Header: React.FC = () => {
             </nav>
             
             <div className="whitespace-nowrap hidden md:flex items-center mx-2 flex-shrink-0">
-              <a href="tel:+73833838286" data-roistat-phone className={`podmena_support360 text-lg font-medium transition-colors ${isScrolled ? 'text-primary hover:underline' : 'text-white hover:text-primary'} whitespace-nowrap`}>
+              <a href="tel:+73833838286" data-roistat-phone className={`podmenasupport360 text-lg font-medium transition-colors ${isScrolled ? 'text-primary hover:underline' : 'text-white hover:text-primary'} whitespace-nowrap`}>
                 +7 (383) 383-82-86
               </a>
             </div>
@@ -166,7 +166,7 @@ const Header: React.FC = () => {
               <div className="flex items-start justify-center">
                 <Phone className="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0"/>
                 <a href="tel:+73833838286" 
-                   className="podmena_support360 text-lg hover:underline w-full"
+                   className="podmenasupport360 text-lg hover:underline w-full"
                    onClick={() => setIsMobileMenuOpen(false)}>
                   +7 (383) 383-82-86
                 </a>
