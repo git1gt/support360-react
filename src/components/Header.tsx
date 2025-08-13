@@ -117,7 +117,7 @@ const Header: React.FC = () => {
             </nav>
             
             <div>
-              <a href="tel:+73833838286" className="podmena_support360">
+              <a href="tel:+73833838286" data-roistat-phone className="podmena_support360">
               </a>
             </div>
             
