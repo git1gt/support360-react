@@ -69,7 +69,7 @@ const ContactSection: React.FC = () => {
       }
 
       // Отправка данных на ваш PHP-скрипт
-      const response = await fetch( url, {
+      const response = await fetch( url+"/api/leads", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
