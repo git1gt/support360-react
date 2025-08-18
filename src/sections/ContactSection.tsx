@@ -51,7 +51,7 @@ const ContactSection: React.FC = () => {
   
     try {
       // Отправка данных на ваш PHP-скрипт
-      const response = await fetch('https://support360.1gt.ru/handle_lead.php', {
+      const response = await fetch('https://api.dev.helpdesk.1gt.ru/api/leads', {
         // если он в той же папке, что и index.html:
         // const response = await fetch('/handle_lead.php', {
         method: 'POST',
