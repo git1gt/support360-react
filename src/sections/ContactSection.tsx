@@ -50,10 +50,26 @@ const ContactSection: React.FC = () => {
     };
   
     try {
+
+      let url = null;
+
+      const currentDomain = window.location.hostname;
+      switch (currentDomain) {
+        case 'support360.ru':
+          url = 'https://api.support360.ru'; 
+          break;
+        case 'dev.helpdesk.1gt.ru':
+          url = 'https://api.dev.helpdesk.1gt.ru'; 
+          break;
+      }
+
+      if (!url) {
+        alert('Ошибка.');
+        return;
+      }
+
       // Отправка данных на ваш PHP-скрипт
-      const response = await fetch('https://api.dev.helpdesk.1gt.ru/api/leads', {
-        // если он в той же папке, что и index.html:
-        // const response = await fetch('/handle_lead.php', {
+      const response = await fetch( url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
