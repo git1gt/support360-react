@@ -80,6 +80,7 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="flex space-x-4">
+              {/* -- после изменить ссылку 
               <a 
                 href="https://t.me/dev_support360_bot" 
                 target="_blank" 
@@ -87,7 +88,7 @@ const Footer: React.FC = () => {
                 className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-semibold transition-colors"
               >
                 Посмотреть, как работает
-              </a>
+              </a>              */}
               <button 
                 onClick={scrollToContact}
                 className="border-2 border-primary text-primary hover:bg-primary/10 px-6 py-2 rounded-lg font-semibold transition-colors"

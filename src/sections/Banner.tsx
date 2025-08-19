@@ -95,16 +95,20 @@ const Banner: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+              {/* -- после изменить ссылку
               <div className="relative">
-                <a href="https://t.me/dev_support360_bot" target="_blank" rel="noopener noreferrer">
-                  <div className="absolute -top-5 left-1/2 -translate-x-1/2">
-                    <ArrowDown className="w-6 h-6 md:w-8 md:h-8 text-white animate-bounce" />
-                  </div>
-                  <Button className="w-full !bg-primary !text-white hover:!bg-primary-dark py-3">
-                    Посмотреть, как работет
-                  </Button>
-                </a>
-              </div>
+                  <a href="https://t.me/dev_support360_bot" target="_blank" rel="noopener noreferrer">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2">
+                      <ArrowDown className="w-6 h-6 md:w-8 md:h-8 text-white animate-bounce" />
+                    </div>
+
+                    <Button className="w-full !bg-primary !text-white hover:!bg-primary-dark py-3">
+                      Посмотреть, как работет
+                    </Button>
+
+                  </a>
+                </div>
+              */}
               <Button 
                 onClick={scrollToContact} 
                 className="w-full !text-white border-white hover:!bg-white/10 py-3"
