@@ -108,13 +108,25 @@ const Banner: React.FC = () => {
 
                   </a>
                 </div>
-              */}
+              
               <Button 
                 onClick={scrollToContact} 
-                className="w-full !text-white border-white hover:!bg-white/10 py-3"
-              >
+                className="w-full !text-white border-white hover:!bg-white/10 py-3">
                 Задать вопрос
               </Button>
+              */}
+
+
+              <div className="relative">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2">
+                      <ArrowDown className="w-6 h-6 md:w-8 md:h-8 text-white animate-bounce" />
+                    </div>
+
+                    <Button onClick={scrollToContact}  className="w-full !bg-primary !text-white hover:!bg-primary-dark py-3">
+                      Задать вопрос
+                    </Button>
+              </div>
+
             </div>
           </div>
 
